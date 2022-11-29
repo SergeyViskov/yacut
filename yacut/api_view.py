@@ -39,9 +39,8 @@ def get_short_link():
             raise InvalidAPIUsage(
                 'Указано недопустимое имя для короткой ссылки'
             )
-        elif (
-            URLMap.query.filter_by(short=data['custom_id']).first()is not None
-        ):
+        elif (URLMap.query.filter_by(short=data['custom_id']).first()
+              is not None):
             raise InvalidAPIUsage(f'Имя "{data["custom_id"]}" уже занято.')
         else:
             short = data['custom_id']
